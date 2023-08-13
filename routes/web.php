@@ -21,3 +21,7 @@ Route::get('/', function () {
 //     return view('about');
 // });
 Route::get('about', [App\Http\Controllers\PageController::class, 'about'])->name('about');
+
+// Название сущности в URL во множественном числе, контроллер в единственном
+Route::get('articles', [App\Http\Controllers\ArticleController::class, 'index'])
+  ->name('articles.index'); // имя маршрута, нужно для того, чтобы не создавать ссылки руками
