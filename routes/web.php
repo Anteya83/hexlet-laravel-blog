@@ -26,5 +26,11 @@ Route::get('about', [App\Http\Controllers\PageController::class, 'about'])->name
 Route::get('articles', [App\Http\Controllers\ArticleController::class, 'index'])
   ->name('articles.index'); // имя маршрута, нужно для того, чтобы не создавать ссылки руками
 
+  Route::get('articles/create', 'App\Http\Controllers\ArticleController@create')
+  ->name('articles.create');
+
+  Route::post('articles', 'App\Http\Controllers\ArticleController@store')
+  ->name('articles.store');
+
   Route::get('articles/{id}', [App\Http\Controllers\ArticleController::class, 'show'])
   ->name('articles.show');
