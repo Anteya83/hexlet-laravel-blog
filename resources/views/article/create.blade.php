@@ -10,14 +10,10 @@
 
 
 {{ Form::model($article, ['route' => 'articles.store']) }}
-    {{ Form::label('name', 'Название') }}
+    {{ Form::label('name', 'Название статьи') }}
     {{ Form::text('name') }}<br>
     {{ Form::label('body', 'Содержание') }}
     {{ Form::textarea('body') }}<br>
     {{ Form::submit('Создать') }}
 {{ Form::close() }}
 
-{{ Form::model($article, ['route' => 'articles.store']) }}
-    @include('article.form')
-    {{ Form::submit('Сохранить') }}
-{{ Form::close() }}

@@ -17,26 +17,31 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::get('about', function () {
-//     return view('about');
-// });
+ Route::get('about', function () {
+     return view('about');
+ });
 Route::get('about', [App\Http\Controllers\PageController::class, 'about'])->name('about');
 
 // Название сущности в URL во множественном числе, контроллер в единственном
-Route::get('articles', [App\Http\Controllers\ArticleController::class, 'index'])
-  ->name('articles.index'); // имя маршрута, нужно для того, чтобы не создавать ссылки руками
+//Route::get('articles', [App\Http\Controllers\ArticleController::class, 'index'])
+  //->name('articles.index'); // имя маршрута, нужно для того, чтобы не создавать ссылки руками
 
-  Route::get('articles/create', 'App\Http\Controllers\ArticleController@create')
-  ->name('articles.create');
+  //Route::get('articles/create', 'App\Http\Controllers\ArticleController@create')
+  //->name('articles.create');
 
-  Route::post('articles', 'App\Http\Controllers\ArticleController@store')
-  ->name('articles.store');
+  //Route::post('articles', 'App\Http\Controllers\ArticleController@store')
+  //->name('articles.store');
 
-  Route::get('articles/{id}', [App\Http\Controllers\ArticleController::class, 'show'])
-  ->name('articles.show');
+ // Route::get('articles/{id}', [App\Http\Controllers\ArticleController::class, 'show'])
+ // ->name('articles.show');
+//update
+ // Route::get('articles/{id}/edit', [App\Http\Controllers\ArticleController::class, 'edit'])
+ // ->name('articles.edit');
 
-  Route::get('articles/{id}/edit', [App\Http\Controllers\ArticleController::class, 'edit'])
-  ->name('articles.edit');
-
-  Route::patch('articles/{id}', [App\Http\Controllers\ArticleController::class, 'update'])
-  ->name('articles.update');
+  //Route::patch('articles/{id}', [App\Http\Controllers\ArticleController::class, 'update'])
+ // ->name('articles.update');
+//delete
+ // Route::delete('articles/{id}', [App\Http\Controllers\ArticleController::class, 'destroy'])
+  //->name('articles.destroy');
+  //ресурсная маршрутизация
+  Route::resource('articles', App\Http\Controllers\ArticleController::class);
